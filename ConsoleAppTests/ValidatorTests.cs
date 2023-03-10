@@ -1,4 +1,5 @@
 using ConsoleApp.Model;
+using ConsoleApp.Utility;
 
 namespace ConsoleAppTests
 {
@@ -42,31 +43,31 @@ namespace ConsoleAppTests
         [Test]
         public void ValidateText_PassMinLengthText_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.That(Validator.ValidateText(StringGenerator.GenerateString(Validator.TextMinLength)));
         }
 
         [Test]
         public void ValidateText_PassMaxLengthText_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.That(Validator.ValidateText(StringGenerator.GenerateString(Validator.TextMaxLength)));
         }
 
         [Test]
         public void ValidateText_PassRandomInRangeLengthText_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.That(Validator.ValidateText(StringGenerator.GenerateString(new Random().Next(Validator.TextMinLength, Validator.TextMaxLength))));
         }
 
         [Test]
         public void ValidateText_PassShorterThanMinLengthText_ReturnsFalse()
         {
-            Assert.Pass();
+            Assert.That(!Validator.ValidateText(StringGenerator.GenerateString(Validator.TextMinLength - 1)));
         }
 
         [Test]
         public void ValidateText_PassLongerThanMaxLengthText_ReturnsFalse()
         {
-            Assert.Pass();
+            Assert.That(!Validator.ValidateText(StringGenerator.GenerateString(Validator.TextMaxLength + 1)));
         }
     }
 }
