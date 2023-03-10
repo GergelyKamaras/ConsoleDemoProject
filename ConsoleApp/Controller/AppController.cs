@@ -8,12 +8,14 @@ namespace ConsoleApp.Controller
         private UI _ui;
         private DataCache _cache;
         private ElementProcessor _processor;
+        private Validator _validator;
 
         public AppController()
         {
             _ui = new UI();
             _cache = new DataCache();
             _processor = new ElementProcessor();
+            _validator = new Validator();
         }
 
         public void Start()
@@ -43,7 +45,7 @@ namespace ConsoleApp.Controller
             try
             {
                 input = _ui.ChooseInputType();
-                if (!Validator.ValidateTypeChoice(input))
+                if (_validator.ValidateTypeChoice(input))
                 {
                     throw new ArgumentException();
                 }
@@ -62,7 +64,7 @@ namespace ConsoleApp.Controller
             try
             {
                 int number = _ui.AskForNumber(Validator.MinNumber, Validator.MaxNumber);
-                if (Validator.ValidateNumber(number))
+                if (_validator.ValidateNumber(number))
                 {
                     _cache.Elements.Add(number);
                 }
@@ -84,7 +86,7 @@ namespace ConsoleApp.Controller
             try
             {
                 string s = _ui.AskForText(Validator.TextMinLength, Validator.TextMaxLength);
-                if (Validator.ValidateText(s))
+                if (_validator.ValidateText(s))
                 {
                     _cache.Elements.Add(s);
                 }
