@@ -1,5 +1,4 @@
 ﻿using ConsoleApp.Model;
-using ConsoleApp.Utility;
 using ConsoleApp.View;
 
 namespace ConsoleApp.Controller
@@ -21,19 +20,45 @@ namespace ConsoleApp.Controller
 
             while (_cache.Elements.Count < DataCache.MaxNumberOfElements)
             {
-                try
+                int type = HandleTypeChoice();
+                if (type == UI.NumberInputDigit)
                 {
-                    int input = _ui.ChooseInputType();
-                    if (!Validator.ValidateTypeChoice(input))
-                    {
-                        throw new ArgumentException();
-                    }
+                    HandleNumberInput();
                 }
-                catch (Exception e)
+                else
                 {
-                    Console.WriteLine("Invalid input, please choose again!");
+                    HandleStringInput();
                 }
             }
+        }
+
+        private int HandleTypeChoice()
+        {
+            int input = 0;
+            try
+            {
+                input = _ui.ChooseInputType();
+                if (!Validator.ValidateTypeChoice(input))
+                {
+                    throw new ArgumentException();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Invalid input, please choose again!");
+            }
+
+            return input;
+        }
+
+        private void HandleNumberInput()
+        {
+
+        }
+
+        private void HandleStringInput()
+        {
+
         }
     }
 }
