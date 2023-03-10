@@ -105,18 +105,24 @@ namespace ConsoleApp.Controller
 
         private void ProcessElements()
         {
+            _ui.ProcessDisplayWelcome();
             foreach (var element in _cache.Elements)
             {
                 if (element is int)
                 {
-                    _processor.ProcessInt((int)element);
+                    int processedNumber = _processor.ProcessInt((int)element);
+                    bool isPrime = _processor.IsPrime((int)element);
+                    _ui.DisplayProcessedNumber((int)element, processedNumber, isPrime);
                 }
 
                 if (element is string)
                 {
-                    _processor.ProcessString((string)element);
+                    string processedString = _processor.ProcessString((string)element);
+                    _ui.DisplayProcessedText((string)element, processedString);
                 }
             }
+
+            _ui.DisplayGoodbye();
         }
     }
 }
