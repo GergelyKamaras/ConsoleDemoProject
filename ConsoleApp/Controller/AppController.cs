@@ -5,10 +5,10 @@ namespace ConsoleApp.Controller
 {
     internal class AppController
     {
-        private Ui _ui;
-        private DataCache _cache;
-        private ElementProcessor _processor;
-        private Validator _validator;
+        private readonly Ui _ui;
+        private readonly DataCache _cache;
+        private readonly ElementProcessor _processor;
+        private readonly Validator _validator;
 
         public AppController()
         {
