@@ -45,7 +45,7 @@ namespace ConsoleApp.Controller
             try
             {
                 input = _ui.ChooseInputType();
-                if (_validator.ValidateTypeChoice(input))
+                if (!_validator.ValidateTypeChoice(input))
                 {
                     throw new ArgumentException();
                 }
