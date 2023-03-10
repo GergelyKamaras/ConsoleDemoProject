@@ -1,4 +1,5 @@
 ﻿using ConsoleApp.Model;
+using ConsoleApp.Utility;
 using ConsoleApp.View;
 
 namespace ConsoleApp.Controller
@@ -22,7 +23,7 @@ namespace ConsoleApp.Controller
         {
             _ui.Welcome();
 
-            while (_cache.Elements.Count < DataCache.MaxNumberOfElements)
+            while (_cache.Elements.Count < Config.MaxNumberOfElements)
             {
                 GetElement();
             }
@@ -36,12 +37,12 @@ namespace ConsoleApp.Controller
             try
             {
                 type = HandleTypeChoice();
-                _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
-                if (type == Ui.NumberInputDigit)
+                _ui.DisplayRemainingElements(Config.MaxNumberOfElements - _cache.Elements.Count);
+                if (type == Config.NumberInputDigit)
                 {
                     HandleNumberInput();
                 }
-                else if (type == Ui.TextInputDigit)
+                else if (type == Config.TextInputDigit)
                 {
                     HandleStringInput();
                 }
@@ -73,7 +74,7 @@ namespace ConsoleApp.Controller
         {
             try
             {
-                int number = _ui.AskForNumber(Validator.MinNumber, Validator.MaxNumber);
+                int number = _ui.AskForNumber(Config.MinNumber, Config.MaxNumber);
                 if (_validator.ValidateNumber(number))
                 {
                     _cache.Elements.Add(number);
@@ -94,7 +95,7 @@ namespace ConsoleApp.Controller
         {
             try
             {
-                string s = _ui.AskForText(Validator.TextMinLength, Validator.TextMaxLength);
+                string s = _ui.AskForText(Config.TextMinLength, Config.TextMaxLength);
                 if (_validator.ValidateText(s))
                 {
                     _cache.Elements.Add(s);

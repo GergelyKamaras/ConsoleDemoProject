@@ -1,10 +1,9 @@
-﻿namespace ConsoleApp.View
+﻿using ConsoleApp.Utility;
+
+namespace ConsoleApp.View
 {
     internal class Ui
     {
-        public const int NumberInputDigit = 1;
-        public const int TextInputDigit = 2;
-
         public void Welcome()
         {
             Console.WriteLine("Welcome to this demo console application!");
@@ -17,8 +16,8 @@
         {
             Console.Clear();
             Console.WriteLine("Please choose your next input's type by pressing the corresponding number:");
-            Console.WriteLine($"{NumberInputDigit} => Number");
-            Console.WriteLine($"{TextInputDigit} => Text");
+            Console.WriteLine($"{Config.NumberInputDigit} => Number");
+            Console.WriteLine($"{Config.TextInputDigit} => Text");
             Console.Write("-> ");
             string input = Console.ReadLine();
             return Int32.Parse(input);

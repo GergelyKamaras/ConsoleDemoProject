@@ -44,7 +44,7 @@ namespace ConsoleAppTests
         [Test]
         public void ProcessString_MinLengthInput_OutputLengthMatches()
         {
-            string input = StringGenerator.GenerateString(Validator.TextMinLength);
+            string input = StringGenerator.GenerateString(Config.TextMinLength);
             string output = _processor.ProcessString(input);
             Assert.That(input.Length == output.Length);
         }
@@ -52,7 +52,7 @@ namespace ConsoleAppTests
         [Test]
         public void ProcessString_InputLengthMatchesMaxOutput_OutputLengthMatches()
         {
-            string input = StringGenerator.GenerateString(ElementProcessor.OutputString.Length);
+            string input = StringGenerator.GenerateString(Config.OutputString.Length);
             string output = _processor.ProcessString(input);
             Assert.That(input.Length == output.Length);
         }
@@ -60,7 +60,7 @@ namespace ConsoleAppTests
         [Test]
         public void ProcessString_MaxLengthInput_ThrowsNoError()
         {
-            string input = StringGenerator.GenerateString(Validator.TextMaxLength);
+            string input = StringGenerator.GenerateString(Config.TextMaxLength);
             Assert.DoesNotThrow(() => _processor.ProcessString(input));
             
         }
