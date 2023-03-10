@@ -7,11 +7,13 @@ namespace ConsoleApp.Controller
     {
         private UI _ui;
         private DataCache _cache;
+        private ElementProcessor _processor;
 
         public AppController()
         {
             _ui = new UI();
             _cache = new DataCache();
+            _processor = new ElementProcessor();
         }
 
         public void Start()
@@ -31,6 +33,8 @@ namespace ConsoleApp.Controller
                     HandleStringInput();
                 }
             }
+
+            ProcessElements();
         }
 
         private int HandleTypeChoice()
@@ -95,6 +99,22 @@ namespace ConsoleApp.Controller
                 Console.ReadLine();
             }
 
+        }
+
+        private void ProcessElements()
+        {
+            foreach (var element in _cache.Elements)
+            {
+                if (element is int)
+                {
+                    _processor.ProcessInt((int)element);
+                }
+
+                if (element is string)
+                {
+                    _processor.ProcessString((string)element);
+                }
+            }
         }
     }
 }
