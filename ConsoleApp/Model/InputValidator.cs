@@ -2,26 +2,26 @@
 
 namespace ConsoleApp.Model
 {
-    public static class InputValidator
+    public static class Validator
     {
         public const int MinNumber = 10;
         public const int MaxNumber = 9999;
         public const int TextMinLength = 5;
         public const int TextMaxLength = 45;
         
-        public static bool ValidateInputTypeChoice(int num)
+        public static bool ValidateTypeChoice(int num)
         {
-            return (num == UI.NumberInputDigit || num == UI.TextInputDigit);
+            return (num == UI.TextInputDigit || num == UI.NumberInputDigit);
         }
 
-        public static bool ValidateNumberInput(int num)
+        public static bool ValidateNumber(int num)
         {
             return (MinNumber <= num && num <= MaxNumber);
         }
 
-        public static bool ValidateTextInput(string text)
+        public static bool ValidateText(string text)
         {
-            throw new NotImplementedException();
+            return (TextMinLength <= text.Length && text.Length <= TextMaxLength);
         }
     }
 }

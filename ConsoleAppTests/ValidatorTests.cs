@@ -10,61 +10,61 @@ namespace ConsoleAppTests
         }
 
         [Test]
-        public void ValidateNumberInput_PassMinNumber_ReturnsTrue()
+        public void ValidateNumber_PassMinNumber_ReturnsTrue()
         {
-            Assert.That(InputValidator.ValidateNumberInput(InputValidator.MinNumber));
+            Assert.That(Validator.ValidateNumber(Validator.MinNumber));
         }
 
         [Test]
-        public void ValidateNumberInput_PassMaxNumber_ReturnsTrue()
+        public void ValidateNumber_PassMaxNumber_ReturnsTrue()
         {
-            Assert.That(InputValidator.ValidateNumberInput(InputValidator.MaxNumber));
+            Assert.That(Validator.ValidateNumber(Validator.MaxNumber));
         }
         
         [Test]
-        public void ValidateNumberInput_PassRandomInRangeNumber_ReturnsTrue()
+        public void ValidateNumber_PassRandomInRangeNumber_ReturnsTrue()
         {
-            Assert.That(InputValidator.ValidateNumberInput(new Random().Next(InputValidator.MinNumber, InputValidator.MaxNumber)));
+            Assert.That(Validator.ValidateNumber(new Random().Next(Validator.MinNumber, Validator.MaxNumber)));
         }
 
         [Test]
-        public void ValidateNumberInput_PassLowerThanMinNumber_ReturnsFalse()
+        public void ValidateNumber_PassLowerThanMinNumber_ReturnsFalse()
         {
-            Assert.That(InputValidator.ValidateNumberInput(InputValidator.MaxNumber));
+            Assert.That(Validator.ValidateNumber(Validator.MaxNumber));
         }
 
         [Test]
-        public void ValidateNumberInput_PassLargerThanMaxNumber_ReturnsFalse()
+        public void ValidateNumber_PassLargerThanMaxNumber_ReturnsFalse()
         {
-            Assert.That(!InputValidator.ValidateNumberInput(InputValidator.MaxNumber + 1));
+            Assert.That(!Validator.ValidateNumber(Validator.MaxNumber + 1));
         }
 
         [Test]
-        public void ValidateTextInput_PassMinLengthText_ReturnsTrue()
-        {
-            Assert.Pass();
-        }
-
-        [Test]
-        public void ValidateTextInput_PassMaxLengthText_ReturnsTrue()
+        public void ValidateText_PassMinLengthText_ReturnsTrue()
         {
             Assert.Pass();
         }
 
         [Test]
-        public void ValidateTextInput_PassRandomInRangeLengthText_ReturnsTrue()
+        public void ValidateText_PassMaxLengthText_ReturnsTrue()
         {
             Assert.Pass();
         }
 
         [Test]
-        public void ValidateTextInput_PassShorterThanMinLengthText_ReturnsFalse()
+        public void ValidateText_PassRandomInRangeLengthText_ReturnsTrue()
         {
             Assert.Pass();
         }
 
         [Test]
-        public void ValidateTextInput_PassLongerThanMaxLengthText_ReturnsFalse()
+        public void ValidateText_PassShorterThanMinLengthText_ReturnsFalse()
+        {
+            Assert.Pass();
+        }
+
+        [Test]
+        public void ValidateText_PassLongerThanMaxLengthText_ReturnsFalse()
         {
             Assert.Pass();
         }
