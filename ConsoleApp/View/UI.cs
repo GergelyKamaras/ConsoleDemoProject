@@ -44,8 +44,34 @@
         {
             Console.Clear();
             Console.WriteLine($"You need to provide {num} more elements");
-            Console.WriteLine();
+        public void ProcessDisplayWelcome()
+        {
+            Console.Clear();
+            Console.WriteLine("Your processed input is as follows:\n");
+        }
 
+        public void DisplayProcessedNumber(int num, int processedNum, bool isPrime)
+        {
+            Console.Write($"{num} - {processedNum}");
+            if (isPrime)
+            {
+                Console.WriteLine(" !prímszám");
+            }
+            else
+            {
+            Console.WriteLine();
+            }
+        }
+
+        public void DisplayProcessedText(string text, string processedText)
+        {
+            Console.WriteLine($"{text} - {processedText}");
+        }
+
+        public void DisplayGoodbye()
+        {
+            Console.WriteLine("\nThank you for running me, have a nice day and press enter to exit the application!");
+            Console.ReadLine();
         }
     }
 }
