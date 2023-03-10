@@ -1,13 +1,13 @@
 ﻿namespace ConsoleApp.View
 {
-    internal class UI
+    internal class Ui
     {
         public const int NumberInputDigit = 1;
         public const int TextInputDigit = 2;
 
         public void Welcome()
         {
-            Console.WriteLine("Welcome to this Demo console application!");
+            Console.WriteLine("Welcome to this demo console application!");
             Console.WriteLine("After pressing enter, please follow the onscreen instructions");
             Console.ReadLine();
             Console.Clear();

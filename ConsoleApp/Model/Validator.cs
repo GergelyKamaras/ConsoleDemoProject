@@ -11,7 +11,7 @@ namespace ConsoleApp.Model
         
         public bool ValidateTypeChoice(int num)
         {
-            return (num == UI.TextInputDigit || num == UI.NumberInputDigit);
+            return (num == Ui.TextInputDigit || num == Ui.NumberInputDigit);
         }
 
         public bool ValidateNumber(int num)

@@ -5,14 +5,14 @@ namespace ConsoleApp.Controller
 {
     internal class AppController
     {
-        private UI _ui;
+        private Ui _ui;
         private DataCache _cache;
         private ElementProcessor _processor;
         private Validator _validator;
 
         public AppController()
         {
-            _ui = new UI();
+            _ui = new Ui();
             _cache = new DataCache();
             _processor = new ElementProcessor();
             _validator = new Validator();
@@ -37,11 +37,11 @@ namespace ConsoleApp.Controller
             {
                 type = HandleTypeChoice();
                 _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
-                if (type == UI.NumberInputDigit)
+                if (type == Ui.NumberInputDigit)
                 {
                     HandleNumberInput();
                 }
-                else if (type == UI.TextInputDigit)
+                else if (type == Ui.TextInputDigit)
                 {
                     HandleStringInput();
                 }
