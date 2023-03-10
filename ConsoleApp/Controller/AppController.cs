@@ -24,16 +24,30 @@ namespace ConsoleApp.Controller
 
             while (_cache.Elements.Count < DataCache.MaxNumberOfElements)
             {
-                int type = HandleTypeChoice();
-                _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
-                if (type == UI.NumberInputDigit)
+                int type;
+                try
                 {
-                    HandleNumberInput();
+                    type = HandleTypeChoice();
+                    _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
+                    if (type == UI.NumberInputDigit)
+                    {
+                        HandleNumberInput();
+                    }
+                    else if (type == UI.TextInputDigit)
+                    {
+                        HandleStringInput();
+                    }
+                    else
+                    {
+                        throw new ArgumentException();
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    HandleStringInput();
+                    Console.WriteLine("Invalid Input, please provide a valid input!");
+                    Console.ReadLine();
                 }
+
             }
 
             ProcessElements();
@@ -41,19 +55,11 @@ namespace ConsoleApp.Controller
 
         private int HandleTypeChoice()
         {
-            int input = 0;
-            try
+            
+            int input = _ui.ChooseInputType();
+            if (!_validator.ValidateTypeChoice(input))
             {
-                input = _ui.ChooseInputType();
-                if (!_validator.ValidateTypeChoice(input))
-                {
-                    throw new ArgumentException();
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Invalid input, please choose again!");
-                Console.ReadLine();
+                throw new ArgumentException();
             }
 
             return input;
