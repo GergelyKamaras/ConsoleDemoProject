@@ -1,4 +1,5 @@
 ﻿using ConsoleApp.Model;
+using ConsoleApp.Utility;
 
 namespace ConsoleAppTests
 {
@@ -43,19 +44,25 @@ namespace ConsoleAppTests
         [Test]
         public void ProcessString_MinLengthInput_OutputLengthMatches()
         {
-            Assert.Pass();
+            string input = StringGenerator.GenerateString(Validator.TextMinLength);
+            string output = _processor.ProcessString(input);
+            Assert.That(input.Length == output.Length);
         }
 
         [Test]
-        public void ProcessString_InputShorterThanMaxOutput_OutputLengthMatches()
+        public void ProcessString_InputLengthMatchesMaxOutput_OutputLengthMatches()
         {
-            Assert.Pass();
+            string input = StringGenerator.GenerateString(ElementProcessor.OutputString.Length);
+            string output = _processor.ProcessString(input);
+            Assert.That(input.Length == output.Length);
         }
 
         [Test]
         public void ProcessString_MaxLengthInput_ThrowsNoError()
         {
-            Assert.Pass();
+            string input = StringGenerator.GenerateString(Validator.TextMaxLength);
+            Assert.DoesNotThrow(() => _processor.ProcessString(input));
+            
         }
 
         [Test]
