@@ -16,7 +16,7 @@ namespace ConsoleApp.Model
 
         public static bool ValidateNumberInput(int num)
         {
-            throw new NotImplementedException();
+            return (MinNumber <= num && num <= MaxNumber);
         }
 
         public static bool ValidateTextInput(string text)

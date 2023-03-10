@@ -1,3 +1,5 @@
+using ConsoleApp.Model;
+
 namespace ConsoleAppTests
 {
     public class ValidatorTests
@@ -10,31 +12,31 @@ namespace ConsoleAppTests
         [Test]
         public void ValidateNumberInput_PassMinNumber_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.That(InputValidator.ValidateNumberInput(InputValidator.MinNumber));
         }
 
         [Test]
         public void ValidateNumberInput_PassMaxNumber_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.That(InputValidator.ValidateNumberInput(InputValidator.MaxNumber));
         }
         
         [Test]
         public void ValidateNumberInput_PassRandomInRangeNumber_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.That(InputValidator.ValidateNumberInput(new Random().Next(InputValidator.MinNumber, InputValidator.MaxNumber)));
         }
 
         [Test]
         public void ValidateNumberInput_PassLowerThanMinNumber_ReturnsFalse()
         {
-            Assert.Pass();
+            Assert.That(InputValidator.ValidateNumberInput(InputValidator.MaxNumber));
         }
 
         [Test]
         public void ValidateNumberInput_PassLargerThanMaxNumber_ReturnsFalse()
         {
-            Assert.Pass();
+            Assert.That(!InputValidator.ValidateNumberInput(InputValidator.MaxNumber + 1));
         }
 
         [Test]
