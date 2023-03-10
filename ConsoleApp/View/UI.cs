@@ -7,9 +7,8 @@
 
         public void Welcome()
         {
-            Console.WriteLine("Welcome to this console application!");
-            Console.WriteLine("Please follow the onscreen instructions!");
-            Console.WriteLine("Press enter to continue!");
+            Console.WriteLine("Welcome to this Demo console application!");
+            Console.WriteLine("After pressing enter, please follow the onscreen instructions");
             Console.ReadLine();
             Console.Clear();
         }
@@ -43,7 +42,9 @@
         public void DisplayRemainingElements(int num)
         {
             Console.Clear();
-            Console.WriteLine($"You need to provide {num} more elements");
+            Console.WriteLine($"You need to provide {num} more elements\n");
+        }
+
         public void ProcessDisplayWelcome()
         {
             Console.Clear();
@@ -59,7 +60,7 @@
             }
             else
             {
-            Console.WriteLine();
+                Console.WriteLine();
             }
         }
 
