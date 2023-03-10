@@ -1,10 +1,17 @@
 ﻿namespace ConsoleApp.Model
 {
-    internal class ElementProcessor
+    public class ElementProcessor
     {
         public int ProcessInt(int num)
         {
-            throw new NotImplementedException();
+            if (num % 2 == 0)
+            {
+                return num / 2;
+            }
+            else
+            {
+                return num * 2;
+            }
         }
 
         public string ProcessString(string s)
