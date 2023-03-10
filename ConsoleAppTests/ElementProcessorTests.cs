@@ -68,13 +68,28 @@ namespace ConsoleAppTests
         [Test]
         public void IsPrime_PrimeInput_ReturnsTrue()
         {
-            Assert.Pass();
+            Assert.Multiple(() =>
+            {
+                Assert.That(_processor.IsPrime(2));
+                Assert.That(_processor.IsPrime(13));
+                Assert.That(_processor.IsPrime(29));
+                Assert.That(_processor.IsPrime(73));
+                Assert.That(_processor.IsPrime(97));
+            });
         }
 
         [Test]
         public void IsPrime_NotPrimeInput_ReturnsFalse()
         {
-            Assert.Pass();
+            Assert.Multiple(() =>
+            {
+                Assert.That(!_processor.IsPrime(-1));
+                Assert.That(!_processor.IsPrime(1));
+                Assert.That(!_processor.IsPrime(80));
+                Assert.That(!_processor.IsPrime(2562));
+                Assert.That(!_processor.IsPrime(15));
+                Assert.That(!_processor.IsPrime(81));
+            });
         }
     }
 }

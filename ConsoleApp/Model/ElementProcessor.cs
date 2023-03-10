@@ -27,7 +27,25 @@
 
         public bool IsPrime(int num)
         {
-            throw new NotImplementedException();
+            if (num == 2)
+            {
+                return true;
+            }
+            
+            if (num <= 1 || num % 2 == 0)
+            {
+                return false;
+            }
+
+            for (int i = 3; i <= num / 2; i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
