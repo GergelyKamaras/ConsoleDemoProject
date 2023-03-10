@@ -24,33 +24,37 @@ namespace ConsoleApp.Controller
 
             while (_cache.Elements.Count < DataCache.MaxNumberOfElements)
             {
-                int type;
-                try
-                {
-                    type = HandleTypeChoice();
-                    _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
-                    if (type == UI.NumberInputDigit)
-                    {
-                        HandleNumberInput();
-                    }
-                    else if (type == UI.TextInputDigit)
-                    {
-                        HandleStringInput();
-                    }
-                    else
-                    {
-                        throw new ArgumentException();
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Invalid Input, please provide a valid input!");
-                    Console.ReadLine();
-                }
-
+                GetElement();
             }
 
             ProcessElements();
+        }
+
+        public void GetElement()
+        {
+            int type;
+            try
+            {
+                type = HandleTypeChoice();
+                _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
+                if (type == UI.NumberInputDigit)
+                {
+                    HandleNumberInput();
+                }
+                else if (type == UI.TextInputDigit)
+                {
+                    HandleStringInput();
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Invalid Input, please provide a valid input!");
+                Console.ReadLine();
+            }
         }
 
         private int HandleTypeChoice()
@@ -84,7 +88,6 @@ namespace ConsoleApp.Controller
                 Console.WriteLine("Invalid input, please choose again!");
                 Console.ReadLine();
             }
-
         }
 
         private void HandleStringInput()
