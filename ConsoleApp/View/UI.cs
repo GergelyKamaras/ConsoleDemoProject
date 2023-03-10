@@ -16,12 +16,36 @@
 
         public int ChooseInputType()
         {
+            Console.Clear();
             Console.WriteLine("Please choose your next input's type by pressing the corresponding number:");
             Console.WriteLine($"{NumberInputDigit} => Number");
             Console.WriteLine($"{TextInputDigit} => Text");
             Console.Write("-> ");
             string input = Console.ReadLine();
             return Int32.Parse(input);
+        }
+
+        public int AskForNumber(int min, int max)
+        {
+            Console.WriteLine($"Please provide a number between {min} and {max}");
+            Console.Write("-> ");
+            string input = Console.ReadLine();
+            return Int32.Parse(input);
+        }
+
+        public string AskForText(int minLength, int maxLength)
+        {
+            Console.WriteLine($"Please provide a text between length {minLength} and {maxLength}");
+            Console.Write("-> ");
+            return Console.ReadLine();
+        }
+
+        public void DisplayRemainingElements(int num)
+        {
+            Console.Clear();
+            Console.WriteLine($"You need to provide {num} more elements");
+            Console.WriteLine();
+
         }
     }
 }

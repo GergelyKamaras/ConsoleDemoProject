@@ -21,6 +21,7 @@ namespace ConsoleApp.Controller
             while (_cache.Elements.Count < DataCache.MaxNumberOfElements)
             {
                 int type = HandleTypeChoice();
+                _ui.DisplayRemainingElements(DataCache.MaxNumberOfElements - _cache.Elements.Count);
                 if (type == UI.NumberInputDigit)
                 {
                     HandleNumberInput();
