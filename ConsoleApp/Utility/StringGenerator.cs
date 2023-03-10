@@ -2,8 +2,8 @@
 {
     public static class StringGenerator
     {
-        private const int _ascciMin = 0;
-        private const int _asciiMax = 126;
+        private const int AsciiMin = 0;
+        private const int AsciiMax = 126;
         
         public static string GenerateString(int length)
         {
@@ -12,7 +12,7 @@
 
             for (int i = 0; i < length; i++)
             {
-                outString += Convert.ToChar(random.Next(_ascciMin, _asciiMax));
+                outString += Convert.ToChar(random.Next(AsciiMin, AsciiMax));
             }
 
             return outString;
