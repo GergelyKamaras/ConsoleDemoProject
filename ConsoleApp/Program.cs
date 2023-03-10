@@ -1,5 +1,4 @@
-﻿using ConsoleApp.Model;
-using ConsoleApp.View;
+﻿using ConsoleApp.Controller;
 
 namespace ConsoleApp
 {
@@ -7,21 +6,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            UI ui = new UI();
-
-            ui.Welcome();
-            try
-            {
-                int input = ui.ChooseInputType();
-                if (!InputValidator.ValidateInputTypeChoice(input))
-                {
-                    throw new ArgumentException();
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Invalid input, please choose again!");
-            }
+            AppController controller = new AppController();
+            controller.Start();
         }
     }
 }
