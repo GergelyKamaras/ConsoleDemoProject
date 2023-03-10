@@ -77,6 +77,23 @@ namespace ConsoleApp.Controller
 
         private void HandleStringInput()
         {
+            try
+            {
+                string s = _ui.AskForText(Validator.TextMinLength, Validator.TextMaxLength);
+                if (Validator.ValidateText(s))
+                {
+                    _cache.Elements.Add(s);
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Invalid input, please choose again!");
+                Console.ReadLine();
+            }
 
         }
     }
