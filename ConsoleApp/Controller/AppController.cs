@@ -47,6 +47,7 @@ namespace ConsoleApp.Controller
             catch (Exception e)
             {
                 Console.WriteLine("Invalid input, please choose again!");
+                Console.ReadLine();
             }
 
             return input;
@@ -54,6 +55,23 @@ namespace ConsoleApp.Controller
 
         private void HandleNumberInput()
         {
+            try
+            {
+                int number = _ui.AskForNumber(Validator.MinNumber, Validator.MaxNumber);
+                if (Validator.ValidateNumber(number))
+                {
+                    _cache.Elements.Add(number);
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Invalid input, please choose again!");
+                Console.ReadLine();
+            }
 
         }
 
